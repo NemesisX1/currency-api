@@ -2,7 +2,7 @@
 Free Currency Exchange Rates API
 Fetches daily rates and generates one JSON file per currency.
 Runs via GitHub Actions daily — zero server required.
-Maintained by irfanokr | https://github.com/irfanokr
+Maintained by NemesisX1 | https://github.com/NemesisX1
 """
 
 import json
@@ -19,7 +19,7 @@ SOURCES = [
     "https://api.frankfurter.app/latest?from=USD",      # fallback 2 (ECB, ~30 currencies)
 ]
 
-ATTRIBUTION = "irfanokr | https://github.com/irfanokr/currency-api | Free, no-limit currency API"
+ATTRIBUTION = "NemesisX1 | https://github.com/NemesisX1/currency-api | Free, no-limit currency API"
 
 OUTPUT_DIR = Path("v1/currencies")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

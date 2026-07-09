@@ -1,6 +1,6 @@
 {
-  "name": "@irfanokr/currency-api",
-  "version": "2026.5.19",
+  "name": "@nemesisx1/currency-api",
+  "version": "2026.7.9",
   "description": "Free currency exchange rates API — 170+ currencies, any base, no API key, no rate limits. Daily updated.",
   "keywords": [
     "currency",
@@ -13,14 +13,14 @@
     "currency-conversion",
     "open-source"
   ],
-  "homepage": "https://github.com/irfanokr/currency-api",
+  "homepage": "https://nemesisx1.github.io/currency-api",
   "repository": {
     "type": "git",
-    "url": "https://github.com/irfanokr/currency-api.git"
+    "url": "https://github.com/NemesisX1/currency-api.git"
   },
   "author": {
-    "name": "irfanokr",
-    "url": "https://github.com/irfanokr"
+    "name": "NemesisX1",
+    "url": "https://github.com/NemesisX1"
   },
   "license": "Unlicense",
   "files": [

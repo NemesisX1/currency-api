@@ -2,7 +2,7 @@
 
 **170+ currencies · Any base currency · No API key · No rate limits · Daily updated**
 
-> Maintained by [irfanokr](https://github.com/irfanokr) &nbsp;·&nbsp; Free forever
+> Maintained by [NemesisX1](https://github.com/NemesisX1) &nbsp;·&nbsp; Free forever
 
 ---
 
@@ -26,7 +26,7 @@ No signup. No API key. Just GET the URL.
 ### Base URL (always latest — updated daily)
 
 ```
-https://cdn.jsdelivr.net/gh/irfanokr/currency-api@main/v1/currencies/{base}.json
+https://cdn.jsdelivr.net/gh/NemesisX1/currency-api@main/v1/currencies/{base}.json
 ```
 
 > Currency codes are **lowercase**: `usd`, `pkr`, `eur`, `sar` — not `USD`
@@ -35,37 +35,37 @@ https://cdn.jsdelivr.net/gh/irfanokr/currency-api@main/v1/currencies/{base}.json
 
 ```bash
 # USD as base — all currencies priced in USD
-curl https://cdn.jsdelivr.net/gh/irfanokr/currency-api@main/v1/currencies/usd.json
+curl https://cdn.jsdelivr.net/gh/NemesisX1/currency-api@main/v1/currencies/usd.json
 
 # EUR as base
-curl https://cdn.jsdelivr.net/gh/irfanokr/currency-api@main/v1/currencies/eur.json
+curl https://cdn.jsdelivr.net/gh/NemesisX1/currency-api@main/v1/currencies/eur.json
 
 # PKR as base — all currencies priced in Pakistani Rupees
-curl https://cdn.jsdelivr.net/gh/irfanokr/currency-api@main/v1/currencies/pkr.json
+curl https://cdn.jsdelivr.net/gh/NemesisX1/currency-api@main/v1/currencies/pkr.json
 
 # SAR — Saudi Riyal
-curl https://cdn.jsdelivr.net/gh/irfanokr/currency-api@main/v1/currencies/sar.json
+curl https://cdn.jsdelivr.net/gh/NemesisX1/currency-api@main/v1/currencies/sar.json
 
 # AED — UAE Dirham
-curl https://cdn.jsdelivr.net/gh/irfanokr/currency-api@main/v1/currencies/aed.json
+curl https://cdn.jsdelivr.net/gh/NemesisX1/currency-api@main/v1/currencies/aed.json
 ```
 
 ### Minified (faster, use in production)
 
 ```bash
-curl https://cdn.jsdelivr.net/gh/irfanokr/currency-api@main/v1/currencies/usd.min.json
+curl https://cdn.jsdelivr.net/gh/NemesisX1/currency-api@main/v1/currencies/usd.min.json
 ```
 
 ### List all supported currencies
 
 ```bash
-curl https://cdn.jsdelivr.net/gh/irfanokr/currency-api@main/v1/currencies/currencies.json
+curl https://cdn.jsdelivr.net/gh/NemesisX1/currency-api@main/v1/currencies/currencies.json
 ```
 
 ### Fallback URL (GitHub Pages)
 
 ```
-https://irfanokr.github.io/currency-api/v1/currencies/{base}.json
+https://NemesisX1.github.io/currency-api/v1/currencies/{base}.json
 ```
 
 ---
@@ -75,7 +75,7 @@ https://irfanokr.github.io/currency-api/v1/currencies/{base}.json
 ```json
 {
   "date": "2026-04-29",
-  "attribution": "irfanokr | https://github.com/irfanokr/currency-api | Free, no-limit currency API",
+  "attribution": "NemesisX1 | https://github.com/NemesisX1/currency-api | Free, no-limit currency API",
   "usd": {
     "aed": 3.6725,
     "aud": 1.5821,
@@ -98,7 +98,7 @@ https://irfanokr.github.io/currency-api/v1/currencies/{base}.json
 Add `.min.json` instead of `.json`:
 
 ```bash
-curl https://cdn.jsdelivr.net/npm/@irfanokr/currency-api@latest/v1/currencies/usd.min.json
+curl https://cdn.jsdelivr.net/npm/@NemesisX1/currency-api@latest/v1/currencies/usd.min.json
 ```
 
 ---
@@ -108,7 +108,7 @@ curl https://cdn.jsdelivr.net/npm/@irfanokr/currency-api@latest/v1/currencies/us
 To convert **100 USD → PKR**:
 
 ```js
-const base = await fetch('https://cdn.jsdelivr.net/npm/@irfanokr/currency-api@latest/v1/currencies/usd.json')
+const base = await fetch('https://cdn.jsdelivr.net/npm/@NemesisX1/currency-api@latest/v1/currencies/usd.json')
   .then(r => r.json());
 
 const pkrRate = base.usd.pkr;       // e.g. 278.50
@@ -118,7 +118,7 @@ const result  = 100 * pkrRate;      // 27850 PKR
 To convert **PKR → USD** (or any pair):
 
 ```js
-const base = await fetch('https://cdn.jsdelivr.net/npm/@irfanokr/currency-api@latest/v1/currencies/pkr.json')
+const base = await fetch('https://cdn.jsdelivr.net/npm/@NemesisX1/currency-api@latest/v1/currencies/pkr.json')
   .then(r => r.json());
 
 const usdRate = base.pkr.usd;       // e.g. 0.003590
@@ -169,7 +169,7 @@ Currencies relevant to Pakistan & remittance corridors:
 async function convert(amount, from, to) {
   const base = from.toLowerCase();
   const target = to.toLowerCase();
-  const url = `https://cdn.jsdelivr.net/gh/irfanokr/currency-api@main/v1/currencies/${base}.min.json`;
+  const url = `https://cdn.jsdelivr.net/gh/NemesisX1/currency-api@main/v1/currencies/${base}.min.json`;
   const data = await fetch(url).then(r => r.json());
   return amount * data[base][target];
 }
@@ -189,7 +189,7 @@ convert(1000, 'sar', 'pkr').then(console.log);   // ~7427
 ```python
 import urllib.request, json
 
-BASE = "https://cdn.jsdelivr.net/gh/irfanokr/currency-api@main/v1/currencies"
+BASE = "https://cdn.jsdelivr.net/gh/NemesisX1/currency-api@main/v1/currencies"
 
 def convert(amount, from_currency, to_currency):
     url = f"{BASE}/{from_currency.lower()}.min.json"
@@ -204,7 +204,7 @@ print(convert(1000, "sar", "pkr"))  # ~7427.0
 ### PHP
 
 ```php
-define('CURRENCY_API', 'https://cdn.jsdelivr.net/gh/irfanokr/currency-api@main/v1/currencies');
+define('CURRENCY_API', 'https://cdn.jsdelivr.net/gh/NemesisX1/currency-api@main/v1/currencies');
 
 function convert($amount, $from, $to) {
     $data = json_decode(file_get_contents(CURRENCY_API . "/{$from}.min.json"), true);
@@ -221,9 +221,9 @@ echo convert(1000, 'sar', 'pkr');  // ~7427
 
 | CDN | URL Pattern | Status |
 |---|---|---|
-| **jsDelivr (GitHub)** | `cdn.jsdelivr.net/gh/irfanokr/currency-api@main/v1/currencies/{base}.json` | ✅ Live now |
-| **GitHub Pages** | `irfanokr.github.io/currency-api/v1/currencies/{base}.json` | ✅ Live now |
-| **GitHub Raw** | `raw.githubusercontent.com/irfanokr/currency-api/main/v1/currencies/{base}.json` | ✅ Live now |
+| **jsDelivr (GitHub)** | `cdn.jsdelivr.net/gh/NemesisX1/currency-api@main/v1/currencies/{base}.json` | ✅ Live now |
+| **GitHub Pages** | `NemesisX1.github.io/currency-api/v1/currencies/{base}.json` | ✅ Live now |
+| **GitHub Raw** | `raw.githubusercontent.com/NemesisX1/currency-api/main/v1/currencies/{base}.json` | ✅ Live now |
 
 Use jsDelivr as primary (fastest CDN). GitHub Pages as fallback. GitHub Raw as last resort.
 
@@ -234,7 +234,7 @@ Use jsDelivr as primary (fastest CDN). GitHub Pages as fallback. GitHub Raw as l
 1. **GitHub Actions** runs daily at midnight UTC
 2. **Python script** fetches rates from multiple free data sources
 3. Generates **one JSON file per base currency** (170+ files)
-4. Publishes as an **npm package** (`@irfanokr/currency-api`)
+4. Publishes as an **npm package** (`@NemesisX1/currency-api`)
 5. **jsDelivr CDN** serves the files globally — no server needed, ever
 
 **Zero cost. Zero maintenance. Open source.**
@@ -246,7 +246,7 @@ Use jsDelivr as primary (fastest CDN). GitHub Pages as fallback. GitHub Raw as l
 If you use this API in your project, a credit in your README or app is appreciated:
 
 ```markdown
-Exchange rates by [irfanokr/currency-api](https://github.com/irfanokr/currency-api) — Free & open source
+Exchange rates by [NemesisX1/currency-api](https://github.com/NemesisX1/currency-api) — Free & open source
 ```
 
 ---
@@ -257,4 +257,4 @@ Exchange rates by [irfanokr/currency-api](https://github.com/irfanokr/currency-a
 
 ---
 
-*Maintained by [irfanokr](https://github.com/irfanokr)*
+*Maintained by [NemesisX1](https://github.com/NemesisX1)*

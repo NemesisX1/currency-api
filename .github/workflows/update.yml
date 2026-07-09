@@ -11,6 +11,8 @@ jobs:
 
     permissions:
       contents: write
+      pages: write
+      id-token: write
 
     steps:
       - name: Checkout repo
@@ -33,7 +35,6 @@ jobs:
       - name: Bump npm version to today's date
         run: |
           TODAY=$(date -u +%Y-%m-%d)
-          # Use date as npm version (e.g. 2026.4.29)
           VERSION=$(date -u +%Y.%-m.%-d)
           npm version $VERSION --no-git-tag-version --allow-same-version || true
           echo "VERSION=$VERSION" >> $GITHUB_ENV
@@ -52,3 +53,14 @@ jobs:
           git add package.json
           git diff --cached --quiet || git commit -m "rates: ${{ env.TODAY }}"
           git push
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

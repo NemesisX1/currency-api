@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Currency Exchange Rates API</title>
+  <meta name="description" content="Free currency exchange rates API — 170+ currencies, any base, no API key, no rate limits. Daily updated.">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --green: #3fb950;
+      --code-bg: #1c2128;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    h1 span { color: var(--green); }
+    .subtitle { color: var(--muted); font-size: 1.2rem; margin-bottom: 2rem; }
+    .badge {
+      display: inline-block;
+      background: var(--green);
+      color: #000;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      vertical-align: middle;
+      margin-left: 0.5rem;
+    }
+    h2 { font-size: 1.4rem; margin: 2rem 0 1rem; color: var(--text); }
+    p { color: var(--muted); margin-bottom: 1rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .endpoint {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+    .endpoint .method {
+      color: var(--green);
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+    .endpoint .url { color: var(--text); }
+    .endpoint .desc {
+      color: var(--muted);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
+    }
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+    code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+    .try-it {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    .try-it input {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      padding: 0.6rem 1rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.85rem;
+      width: 100%;
+      margin-bottom: 0.75rem;
+    }
+    .try-it input:focus { outline: none; border-color: var(--accent); }
+    .try-it button {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      padding: 0.6rem 1.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .try-it button:hover { opacity: 0.9; }
+    #result {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-top: 0.75rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.8rem;
+      white-space: pre-wrap;
+      max-height: 300px;
+      overflow-y: auto;
+      display: none;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .feature {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .feature strong { color: var(--text); display: block; margin-bottom: 0.25rem; }
+    .feature span { color: var(--muted); font-size: 0.85rem; }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Currency API <span class="badge">FREE</span></h1>
+    <p class="subtitle">170+ currencies &middot; Any base &middot; No API key &middot; No rate limits &middot; Daily updated</p>
+
+    <div class="features">
+      <div class="feature">
+        <strong>170+ Currencies</strong>
+        <span>Fiat, crypto &amp; precious metals</span>
+      </div>
+      <div class="feature">
+        <strong>No API Key</strong>
+        <span>Just fetch the URL directly</span>
+      </div>
+      <div class="feature">
+        <strong>No Rate Limits</strong>
+        <span>Served via GitHub Pages CDN</span>
+      </div>
+      <div class="feature">
+        <strong>Daily Updated</strong>
+        <span>Fresh rates every midnight UTC</span>
+      </div>
+    </div>
+
+    <h2>Try It</h2>
+    <div class="try-it">
+      <input type="text" id="baseInput" placeholder="Enter base currency (e.g. usd, eur, pkr)" value="usd">
+      <button onclick="fetchRates()">Fetch Rates</button>
+      <div id="result"></div>
+    </div>
+
+    <h2>Endpoints</h2>
+    <div class="endpoint">
+      <div><span class="method">GET</span><span class="url">/v1/currencies/{base}.json</span></div>
+      <div class="desc">All exchange rates for the given base currency</div>
+    </div>
+    <div class="endpoint">
+      <div><span class="method">GET</span><span class="url">/v1/currencies/{base}.min.json</span></div>
+      <div class="desc">Minified version (smaller, faster)</div>
+    </div>
+    <div class="endpoint">
+      <div><span class="method">GET</span><span class="url">/v1/currencies/currencies.json</span></div>
+      <div class="desc">List of all supported currency codes</div>
+    </div>
+    <div class="endpoint">
+      <div><span class="method">GET</span><span class="url">/v1/currencies/latest.json</span></div>
+      <div class="desc">All bases &times; all targets in one file</div>
+    </div>
+
+    <h2>Quick Start</h2>
+    <pre><code>// JavaScript
+const res = await fetch('https://nemesisx1.github.io/currency-api/v1/currencies/usd.json');
+const data = await res.json();
+const eurRate = data.usd.eur; // 0.85
+console.log(100 * eurRate);   // 85 EUR</code></pre>
+
+    <pre><code># Python
+import urllib.request, json
+url = "https://nemesisx1.github.io/currency-api/v1/currencies/usd.min.json"
+data = json.loads(urllib.request.urlopen(url).read())
+print(100 * data["usd"]["eur"])  # 85.0</code></pre>
+
+    <pre><code># cURL
+curl https://nemesisx1.github.io/currency-api/v1/currencies/usd.json</code></pre>
+
+    <h2>CDN URLs</h2>
+    <div class="endpoint">
+      <div class="desc"><strong>GitHub Pages (primary):</strong> nemesisx1.github.io/currency-api/v1/currencies/{base}.json</div>
+    </div>
+    <div class="endpoint">
+      <div class="desc"><strong>jsDelivr:</strong> cdn.jsdelivr.net/gh/NemesisX1/currency-api@main/v1/currencies/{base}.json</div>
+    </div>
+    <div class="endpoint">
+      <div class="desc"><strong>GitHub Raw:</strong> raw.githubusercontent.com/NemesisX1/currency-api/main/v1/currencies/{base}.json</div>
+    </div>
+
+    <footer>
+      <p>Open source under the <a href="https://unlicense.org/">Unlicense</a> &middot; <a href="https://github.com/NemesisX1/currency-api">GitHub</a> &middot; Maintained by <a href="https://github.com/NemesisX1">NemesisX1</a></p>
+    </footer>
+  </div>
+
+  <script>
+    async function fetchRates() {
+      const base = document.getElementById('baseInput').value.trim().toLowerCase();
+      const result = document.getElementById('result');
+      if (!base) { result.style.display = 'block'; result.textContent = 'Please enter a currency code.'; return; }
+      result.style.display = 'block';
+      result.textContent = 'Loading...';
+      try {
+        const res = await fetch(`v1/currencies/${base}.json`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const rates = data[base];
+        const entries = Object.entries(rates).slice(0, 30);
+        let out = `Date: ${data.date}\n\n1 ${base.toUpperCase()} =\n\n`;
+        for (const [code, rate] of entries) {
+          out += `  ${code.toUpperCase().padEnd(6)} ${rate}\n`;
+        }
+        const total = Object.keys(rates).length;
+        if (total > 30) out += `\n  ... and ${total - 30} more currencies`;
+        result.textContent = out;
+      } catch (e) {
+        result.textContent = `Error: ${e.message}\nMake sure "${base}" is a valid currency code.`;
+      }
+    }
+    document.getElementById('baseInput').addEventListener('keydown', e => { if (e.key === 'Enter') fetchRates(); });
+  </script>
+</body>
+</html>
