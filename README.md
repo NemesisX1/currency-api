@@ -98,7 +98,7 @@ https://NemesisX1.github.io/currency-api/v1/currencies/{base}.json
 Add `.min.json` instead of `.json`:
 
 ```bash
-curl https://cdn.jsdelivr.net/npm/@NemesisX1/currency-api@latest/v1/currencies/usd.min.json
+curl https://cdn.jsdelivr.net/npm/@lixalistudio/currency-api@latest/v1/currencies/usd.min.json
 ```
 
 ---
@@ -108,7 +108,7 @@ curl https://cdn.jsdelivr.net/npm/@NemesisX1/currency-api@latest/v1/currencies/u
 To convert **100 USD → PKR**:
 
 ```js
-const base = await fetch('https://cdn.jsdelivr.net/npm/@NemesisX1/currency-api@latest/v1/currencies/usd.json')
+const base = await fetch('https://cdn.jsdelivr.net/npm/@lixalistudio/currency-api@latest/v1/currencies/usd.json')
   .then(r => r.json());
 
 const pkrRate = base.usd.pkr;       // e.g. 278.50
@@ -118,7 +118,7 @@ const result  = 100 * pkrRate;      // 27850 PKR
 To convert **PKR → USD** (or any pair):
 
 ```js
-const base = await fetch('https://cdn.jsdelivr.net/npm/@NemesisX1/currency-api@latest/v1/currencies/pkr.json')
+const base = await fetch('https://cdn.jsdelivr.net/npm/@lixalistudio/currency-api@latest/v1/currencies/pkr.json')
   .then(r => r.json());
 
 const usdRate = base.pkr.usd;       // e.g. 0.003590
@@ -234,7 +234,7 @@ Use jsDelivr as primary (fastest CDN). GitHub Pages as fallback. GitHub Raw as l
 1. **GitHub Actions** runs daily at midnight UTC
 2. **Python script** fetches rates from multiple free data sources
 3. Generates **one JSON file per base currency** (170+ files)
-4. Publishes as an **npm package** (`@NemesisX1/currency-api`)
+4. Publishes as an **npm package** (`@lixalistudio/currency-api`)
 5. **jsDelivr CDN** serves the files globally — no server needed, ever
 
 **Zero cost. Zero maintenance. Open source.**
